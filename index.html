@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="id" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
+
+<!--
+=====================================================================
+  SULAPFOTO — LANDING PAGE (dark / futuristic theme)  |  EDIT CHECKLIST
+=====================================================================
+  1. LYNK.ID LINKS ........ edit CONFIG.links in js/main.js.
+                            One place controls every CTA on the page.
+                            (search for: REPLACE WITH ACTUAL LYNK.ID CHECKOUT URL)
+  2. INSTAGRAM / TIKTOK ... edit CONFIG.social in js/main.js.
+  3. BEFORE/AFTER IMAGES .. search for: REPLACE WITH BEFORE IMAGE
+                            and: REPLACE WITH AFTER IMAGE
+                            Delete the <div class="phx …"> placeholder, drop in an <img>.
+                            These placeholders are original gradient art, not real photos —
+                            swap them for your own before/after pairs before launch.
+  4. TESTIMONIALS ......... CONTOH SAMPLE saat ini — WAJIB ganti dengan review ASLI sebelum launch.
+  5. SEO .................. <title>, meta description, canonical, og:image (below).
+  6. TERMS / PRIVACY ...... footer links currently point to "#". Add real pages.
+=====================================================================
+-->
+
+<title>SulapFoto — Natural AI Photo Editing Studio | Mulai Rp25.000</title>
+<meta name="description" content="SulapFoto mengubah foto biasa jadi lebih clean, aesthetic, dan natural — tanpa kelihatan seperti hasil AI. Human reviewed. Mulai Rp25.000.">
+<meta name="theme-color" content="#0A0E16">
+
+<!-- REPLACE with your real domain -->
+<link rel="canonical" href="https://YOURDOMAIN.com/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SulapFoto — Your photo, but better.">
+<meta property="og:description" content="Natural AI photo editing. Hasil yang bikin orang bilang “Damn, fotonya bagus.” Mulai Rp25.000.">
+<meta property="og:url" content="https://YOURDOMAIN.com/">
+<!-- REPLACE with a 1200x630 preview image (best: a strong before/after) -->
+<meta property="og:image" content="https://YOURDOMAIN.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230A0E16'/%3E%3Cpath d='M18 40 L32 16 L34 28 L46 24 L32 48 L30 36 Z' fill='%232FE6C9'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "name": "SulapFoto", "description": "Natural AI Photo Editing Studio", "url": "https://YOURDOMAIN.com/" },
+    { "@type": "FAQPage", "mainEntity": [
+      { "@type": "Question", "name": "Apakah wajah saya akan berubah?", "acceptedAnswer": { "@type": "Answer", "text": "Identitas, bentuk wajah, dan karakter utama foto sebisa mungkin dipertahankan kecuali customer memang meminta perubahan tertentu." } },
+      { "@type": "Question", "name": "Hasilnya bakal kelihatan AI?", "acceptedAnswer": { "@type": "Answer", "text": "SulapFoto berfokus pada natural-looking edits. Tetapi karena sebagian proses menggunakan AI, hasil dapat berbeda tergantung kualitas foto dan kompleksitas request." } },
+      { "@type": "Question", "name": "Foto apa yang paling bagus untuk dikirim?", "acceptedAnswer": { "@type": "Answer", "text": "File original dengan resolusi setinggi mungkin. Hindari screenshot atau foto yang sudah berkali-kali dikompres." } },
+      { "@type": "Question", "name": "Bisa request khusus?", "acceptedAnswer": { "@type": "Answer", "text": "Ya. Customer dapat menuliskan request sedetail mungkin." } },
+      { "@type": "Question", "name": "Bisa revisi?", "acceptedAnswer": { "@type": "Answer", "text": "Paket Signature dan Full Transformation mendapatkan 1x minor revision. Revisi besar atau konsep baru dapat dikenakan biaya tambahan." } },
+      { "@type": "Question", "name": "Berapa lama prosesnya?", "acceptedAnswer": { "@type": "Answer", "text": "Normal order sekitar 1–2 hari kerja tergantung antrean dan kompleksitas." } },
+      { "@type": "Question", "name": "Apakah foto saya dipublikasikan?", "acceptedAnswer": { "@type": "Answer", "text": "Foto customer tidak akan digunakan sebagai materi promosi tanpa persetujuan terlebih dahulu." } }
+    ] }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<a class="skip" href="#main">Lewati ke konten</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="glow" id="glow" aria-hidden="true"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="markGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2FE6C9"/><stop offset="1" stop-color="#4F8CFF"/>
+    </linearGradient>
+    <symbol id="mark" viewBox="0 0 64 64"><path d="M18 40 L32 16 L34 28 L46 24 L32 48 L30 36 Z" fill="url(#markGrad)"/></symbol>
+    <symbol id="chev" viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" id="top">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top" aria-label="SulapFoto — ke atas"><svg class="logo-mark" aria-hidden="true"><use href="#mark"/></svg>SULAPFOTO<i>.</i></a>
+    <div class="nav-right">
+      <nav class="nav-links" id="nav-menu" aria-label="Navigasi utama">
+        <a href="#before-after">Before / After</a>
+        <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <!-- REPLACE WITH ACTUAL LYNK.ID CHECKOUT URL (edit CONFIG in js/main.js) -->
+        <a class="btn btn--primary btn--sm" data-order="default" href="https://lynk.id/USERNAME">Sulap Foto Gue</a>
+      </nav>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Buka menu"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================ HERO ============================ -->
+<section class="hero" aria-labelledby="hero-h">
+  <div class="mesh" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="badge up" style="--i:0"><span class="dotlive" aria-hidden="true"></span>Natural AI Photo Editing</span>
+      <h1 class="hero-title" id="hero-h">
+        <span class="up" style="--i:1">Foto kamu.</span>
+        <span class="up grad-text shimmer" style="--i:2">Versi yang seharusnya.</span>
+      </h1>
+      <p class="hero-sub up" style="--i:3">Lighting, warna, background, sampai vibe — dirapikan sampai layak upload. Tetap kelihatan seperti kamu, bukan karakter AI.</p>
+      <div class="hero-cta up" style="--i:4">
+        <!-- REPLACE WITH ACTUAL LYNK.ID CHECKOUT URL -->
+        <a class="btn btn--primary btn--lg" data-order="default" href="https://lynk.id/USERNAME">Sulap Foto Gue
+          <svg class="arr" aria-hidden="true"><use href="#arrow"/></svg></a>
+        <a class="btn btn--ghost btn--lg" href="#before-after">Lihat hasilnya</a>
+      </div>
+      <div class="hero-meta up" style="--i:5">
+        <p><strong>Starting from Rp25.000</strong></p>
+        <p>Natural result · Human reviewed</p>
+      </div>
+    </div>
+
+    <div class="phone-wrap up" style="--i:3">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="phone-status"><span>9:41</span><span>SulapFoto</span></div>
+          <!-- HERO BEFORE/AFTER — data-sweep runs a one-time reveal on load. Remove it to disable. -->
+          <div class="cmp grain" data-cmp data-sweep role="group" aria-label="Perbandingan before dan after">
+            <div class="cmp-layer cmp-before">
+              <!-- REPLACE WITH YOUR OWN BEFORE IMAGE when you have a real customer result.
+                   Sample photo below is free-licensed (Unsplash License) -- credit: Ariana Prestes / Unsplash.
+                   It's the SAME photo as the "after" layer with a flatter grade applied, since this hero
+                   doesn't claim a specific edit (no object/crowd removal) -- just illustrates enhancement. -->
+              <img class="photo-flat" src="https://images.pexels.com/photos/37805037/pexels-photo-37805037.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Contoh foto sebelum enhancement (ilustratif)">
+            </div>
+            <div class="cmp-layer cmp-after">
+              <!-- REPLACE WITH YOUR OWN AFTER IMAGE. Same source photo as "before", vivid grade applied. -->
+              <img class="photo-vivid" src="https://images.pexels.com/photos/37805037/pexels-photo-37805037.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Contoh foto sesudah enhancement (ilustratif)">
+            </div>
+            <span class="cmp-tag cmp-tag--before">Before</span>
+            <span class="cmp-tag cmp-tag--after">After</span>
+            <input class="cmp-input sr-only" type="range" min="0" max="100" value="50" aria-label="Geser untuk membandingkan foto before dan after">
+            <div class="cmp-handle" aria-hidden="true">
+              <span class="cmp-knob"><svg><use href="#chev"/></svg></span>
+              <span class="cmp-hint">Geser</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="float-card float-card--note">“Same photo. <b>Better execution.</b>”</p>
+      <p class="float-card float-card--badge"><span class="dot" aria-hidden="true"></span><span>Human reviewed</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ TICKER ============================ -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker">
+    <span><i></i>Natural-looking edits</span><span><i></i>No weird AI faces</span><span><i></i>Social-media ready</span><span><i></i>Human reviewed</span><span><i></i>1–2 hari kerja</span>
+    <span><i></i>Natural-looking edits</span><span><i></i>No weird AI faces</span><span><i></i>Social-media ready</span><span><i></i>Human reviewed</span><span><i></i>1–2 hari kerja</span>
+  </div>
+</div>
+
+<!-- ============================ STATS ============================ -->
+<section class="stats" aria-label="SulapFoto singkatnya">
+  <div class="wrap">
+    <ul class="stats-list">
+      <li><p class="stat-n" data-count="6">0</p><p>Jenis edit AI</p></li>
+      <li><p class="stat-n mono">1–2</p><p>Hari kerja</p></li>
+      <li><p class="stat-n mono" data-count="25" data-suffix="K">0K</p><p>Mulai dari (Rp)</p></li>
+      <li><p class="stat-n" data-count="100" data-suffix="%">0%</p><p>Human reviewed</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================ PROBLEM ============================ -->
+<section class="sec problem" aria-labelledby="problem-h">
+  <div class="wrap">
+    <div class="problem-grid">
+      <div class="problem-copy rv">
+        <h2 id="problem-h" data-split>Foto bagus nggak selalu butuh photoshoot ulang.</h2>
+        <p class="lede">Kadang fotonya sebenarnya sudah bagus. Yang kurang cuma lighting, framing, warna, atau satu orang random yang berdiri tepat di belakang kamu.</p>
+      </div>
+      <ul class="pb-grid">
+        <li class="pb rv" style="--d:1">
+          <div class="pb-img">
+            <img class="pb-bad" style="--bad:brightness(.42) contrast(.85) saturate(.5);" src="https://images.pexels.com/photos/38339413/pexels-photo-38339413.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Contoh masalah: Bad lighting" loading="lazy">
+            <img class="pb-fix" src="https://images.pexels.com/photos/38339413/pexels-photo-38339413.jpeg?auto=compress&cs=tinysrgb&w=700" alt="" aria-hidden="true" loading="lazy">
+            <i class="pb-scan" aria-hidden="true"></i>
+          </div>
+          <p>Bad lighting</p>
+        </li>
+        <li class="pb rv" style="--d:2">
+          <div class="pb-img">
+            <img class="pb-bad" style="--bad:brightness(.85) contrast(.85) saturate(.5);" src="https://images.pexels.com/photos/6398859/pexels-photo-6398859.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Contoh masalah: Crowded background" loading="lazy">
+            <img class="pb-fix" src="https://images.pexels.com/photos/6398859/pexels-photo-6398859.jpeg?auto=compress&cs=tinysrgb&w=700" alt="" aria-hidden="true" loading="lazy">
+            <i class="pb-scan" aria-hidden="true"></i>
+          </div>
+          <p>Crowded background</p>
+        </li>
+        <li class="pb rv" style="--d:3">
+          <div class="pb-img">
+            <img class="pb-bad" style="--bad:brightness(.95) contrast(.65) saturate(.1);" src="https://images.pexels.com/photos/37805356/pexels-photo-37805356.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Contoh masalah: Flat colors" loading="lazy">
+            <img class="pb-fix" src="https://images.pexels.com/photos/37805356/pexels-photo-37805356.jpeg?auto=compress&cs=tinysrgb&w=700" alt="" aria-hidden="true" loading="lazy">
+            <i class="pb-scan" aria-hidden="true"></i>
+          </div>
+          <p>Flat colors</p>
+        </li>
+        <li class="pb rv" style="--d:4">
+          <div class="pb-img">
+            <img class="pb-bad" style="--bad:brightness(.92) contrast(.9) saturate(.7);object-position:100% 0;transform:scale(1.6);transform-origin:100% 0" src="https://images.pexels.com/photos/38339534/pexels-photo-38339534.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Contoh masalah: Awkward framing" loading="lazy">
+            <img class="pb-fix" src="https://images.pexels.com/photos/38339534/pexels-photo-38339534.jpeg?auto=compress&cs=tinysrgb&w=700" alt="" aria-hidden="true" loading="lazy">
+            <i class="pb-scan" aria-hidden="true"></i>
+          </div>
+          <p>Awkward framing</p>
+        </li>
+      </ul>
+    </div>
+    <p class="statement grad-text shimmer rv">That's where we come in.</p>
+  </div>
+</section>
+
+<!-- ============================ BEFORE / AFTER SHOWCASE ============================ -->
+<section class="sec showcase" id="before-after" aria-labelledby="showcase-h">
+  <div class="wrap">
+    <header class="sc-head">
+      <h2 id="showcase-h" data-split class="rv">See what a little magic can do.</h2>
+      <p class="lede rv" style="--d:1">Geser garis pembandingnya. Hasilnya dibuat supaya tetap terlihat seperti fotomu — cuma versi yang lebih selesai.</p>
+    </header>
+
+    <div class="sc-grid">
+      <div class="stage-wrap rv">
+        <div class="stage">
+          <div class="cmp stage-cmp is-active" data-cmp data-start="60" role="group" aria-label="Contoh Travel Photo: before dan after">
+            <div class="cmp-layer cmp-before"><img class="photo-flat" src="https://images.pexels.com/photos/2499699/pexels-photo-2499699.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Contoh Travel Photo sebelum enhancement (ilustratif)" style="object-position:50% 50%" loading="lazy"></div>
+            <div class="cmp-layer cmp-after"><img class="photo-vivid" src="https://images.pexels.com/photos/2499699/pexels-photo-2499699.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Contoh Travel Photo sesudah enhancement (ilustratif)" style="object-position:50% 50%" loading="lazy"></div>
+            <span class="cmp-tag cmp-tag--before">Before</span><span class="cmp-tag cmp-tag--after">After</span>
+            <input class="cmp-input sr-only" type="range" min="0" max="100" value="50" aria-label="Geser untuk membandingkan foto Travel Photo">
+            <div class="cmp-handle" aria-hidden="true"><span class="cmp-knob"><svg><use href="#chev"/></svg></span></div>
+          </div>
+          <div class="cmp stage-cmp" data-cmp data-start="55" role="group" aria-label="Contoh OOTD / Portrait: before dan after">
+            <div class="cmp-layer cmp-before"><img class="photo-flat" src="https://images.pexels.com/photos/38339538/pexels-photo-38339538.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Contoh OOTD / Portrait sebelum enhancement (ilustratif)" style="object-position:50% 22%" loading="lazy"></div>
+            <div class="cmp-layer cmp-after"><img class="photo-vivid" src="https://images.pexels.com/photos/38339538/pexels-photo-38339538.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Contoh OOTD / Portrait sesudah enhancement (ilustratif)" style="object-position:50% 22%" loading="lazy"></div>
+            <span class="cmp-tag cmp-tag--before">Before</span><span class="cmp-tag cmp-tag--after">After</span>
+            <input class="cmp-input sr-only" type="range" min="0" max="100" value="50" aria-label="Geser untuk membandingkan foto OOTD / Portrait">
+            <div class="cmp-handle" aria-hidden="true"><span class="cmp-knob"><svg><use href="#chev"/></svg></span></div>
+          </div>
+          <div class="cmp stage-cmp" data-cmp data-start="55" role="group" aria-label="Contoh Lifestyle / Gym: before dan after">
+            <div class="cmp-layer cmp-before"><img class="photo-flat" src="https://images.pexels.com/photos/34043557/pexels-photo-34043557.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Contoh Lifestyle / Gym sebelum enhancement (ilustratif)" style="object-position:50% 30%" loading="lazy"></div>
+            <div class="cmp-layer cmp-after"><img class="photo-vivid" src="https://images.pexels.com/photos/34043557/pexels-photo-34043557.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Contoh Lifestyle / Gym sesudah enhancement (ilustratif)" style="object-position:50% 30%" loading="lazy"></div>
+            <span class="cmp-tag cmp-tag--before">Before</span><span class="cmp-tag cmp-tag--after">After</span>
+            <input class="cmp-input sr-only" type="range" min="0" max="100" value="50" aria-label="Geser untuk membandingkan foto Lifestyle / Gym">
+            <div class="cmp-handle" aria-hidden="true"><span class="cmp-knob"><svg><use href="#chev"/></svg></span></div>
+          </div>
+        </div>
+        <p class="stage-hint mono"><span aria-hidden="true">↔</span> Geser garisnya untuk bandingkan</p>
+      </div>
+      <div class="sc-panel rv" style="--d:1">
+        <div class="tabs" role="tablist" aria-label="Pilih contoh foto">
+        <button class="tab is-active" type="button" role="tab" aria-selected="true" tabindex="0" data-tab="0"><span class="tab-n" aria-hidden="true">01</span><span><b>Travel Photo</b><small>Lighting · Crowd · Color</small></span></button>
+        <button class="tab" type="button" role="tab" aria-selected="false" tabindex="-1" data-tab="1"><span class="tab-n" aria-hidden="true">02</span><span><b>OOTD / Portrait</b><small>Background · Komposisi · Skin</small></span></button>
+        <button class="tab" type="button" role="tab" aria-selected="false" tabindex="-1" data-tab="2"><span class="tab-n" aria-hidden="true">03</span><span><b>Lifestyle / Gym</b><small>Light · Detail · Framing</small></span></button>
+        </div>
+        <div class="panes">
+        <div class="pane is-active" role="tabpanel" data-pane="0">
+          <p class="kicker">Yang dirapikan</p>
+          <ul class="edits"><li style="--k:0">Lighting enhancement</li><li style="--k:1">Crowd removal</li><li style="--k:2">Natural color grading</li></ul>
+          <ul class="chips"><li>Travel dump</li><li>Liburan</li><li>Trip recap</li></ul>
+        </div>
+        <div class="pane" role="tabpanel" data-pane="1">
+          <p class="kicker">Yang dirapikan</p>
+          <ul class="edits"><li style="--k:0">Cleaner background</li><li style="--k:1">Better composition</li><li style="--k:2">Natural skin details</li></ul>
+          <ul class="chips"><li>OOTD</li><li>Profile refresh</li><li>Personal branding</li></ul>
+        </div>
+        <div class="pane" role="tabpanel" data-pane="2">
+          <p class="kicker">Yang dirapikan</p>
+          <ul class="edits"><li style="--k:0">Lighting reconstruction</li><li style="--k:1">Detail enhancement</li><li style="--k:2">Social-ready framing</li></ul>
+          <ul class="chips"><li>Gym</li><li>Lifestyle</li><li>Story & Reels</li></ul>
+        </div>
+        </div>
+        <div class="sc-foot">
+          <a class="btn btn--primary btn--block" data-order="default" href="https://lynk.id/USERNAME">Sulap foto gue — mulai Rp25K
+            <svg class="arr" aria-hidden="true"><use href="#arrow"/></svg></a>
+          <ul class="sc-trust"><li>Natural result</li><li>Human reviewed</li><li>1–2 hari kerja</li></ul>
+        </div>
+      </div>
+    </div>
+    <p class="vibe-cap rv" style="margin-top:var(--s-5)">Foto ilustratif untuk menunjukkan arah hasil. Hasil asli menyesuaikan foto dan request kamu.</p>
+  </div>
+</section>
+
+<!-- ============================ WHAT WE CAN DO ============================ -->
+<section class="sec services" id="services" aria-labelledby="services-h">
+  <div class="wrap svc-grid">
+    <header class="svc-head rv">
+      <h2 id="services-h">One photo.<br><span class="grad-text">A lot we can fix.</span></h2>
+      <p class="lede">Satu foto, banyak yang bisa dirapikan — tanpa mengubah siapa kamu di foto itu.</p>
+    </header>
+    <ol class="svc-list">
+      <li class="svc rv"><span class="svc-n" aria-hidden="true">01</span><div><h3>Natural Enhancement</h3><p>Improve clarity, lighting, colors, and details while keeping the photo realistic.</p></div></li>
+      <li class="svc rv"><span class="svc-n" aria-hidden="true">02</span><div><h3>Remove People &amp; Objects</h3><p>Remove unwanted people, objects, clutter, signs, or distractions from the background.</p></div></li>
+      <li class="svc rv"><span class="svc-n" aria-hidden="true">03</span><div><h3>Change The Vibe</h3><p>Turn a flat photo into warm, cinematic, vintage, soft, luxury, clean, or moody.</p></div></li>
+      <li class="svc rv"><span class="svc-n" aria-hidden="true">04</span><div><h3>Outfit Transformation</h3><p>Change or improve outfit styling while keeping proportions and identity natural.</p></div></li>
+      <li class="svc rv"><span class="svc-n" aria-hidden="true">05</span><div><h3>Background Enhancement</h3><p>Clean, extend, improve, or transform environments.</p></div></li>
+      <li class="svc rv"><span class="svc-n" aria-hidden="true">06</span><div><h3>Social Media Ready</h3><p>Instagram Feed, Story, TikTok, profile picture, dating profile, carousel, etc.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================ STYLE SELECTOR ============================ -->
+<section class="sec vibes" aria-labelledby="vibes-h">
+  <div class="wrap">
+    <header class="vibes-head">
+      <h2 id="vibes-h" data-split class="rv">Pick your vibe.</h2>
+      <p class="lede rv" style="--d:1">Pilih mood-nya, lihat arahnya. Ini preview ilustratif — hasil akhir menyesuaikan foto dan request kamu.</p>
+    </header>
+
+    <div class="vibes-grid">
+      <div class="rv">
+        <div class="vibe-frame grain" id="vibe-frame" data-vibe="natural">
+          <!-- Sample photo, free-licensed (Unsplash License) -- credit: Ariana Prestes / Unsplash. Swap for your own. -->
+          <img class="vph" src="https://images.pexels.com/photos/38339317/pexels-photo-38339317.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Preview gaya foto (ilustratif)">
+        </div>
+        <p class="vibe-cap">Preview ilustratif, bukan hasil edit asli.</p>
+      </div>
+
+      <div class="rv" style="--d:1">
+        <div class="vibe-list" role="group" aria-label="Pilih vibe">
+          <button class="vibe" type="button" data-vibe="natural" data-desc="Bersih, tajam, warna jujur. Seperti hasil iPhone Pro yang dirapikan." aria-pressed="true">Natural iPhone<span class="vibe-sw" aria-hidden="true"><i style="--c:#2FE6C9"></i><i style="--c:#4F8CFF"></i><i style="--c:#9A7CFF"></i></span></button>
+          <button class="vibe" type="button" data-vibe="soft" data-desc="Lembut, highlight halus, kulit tetap punya tekstur." aria-pressed="false">Soft Editorial<span class="vibe-sw" aria-hidden="true"><i style="--c:#f3d9cc"></i><i style="--c:#e2c3b0"></i><i style="--c:#b48f80"></i></span></button>
+          <button class="vibe" type="button" data-vibe="warm" data-desc="Golden hour tanpa perlu nunggu golden hour." aria-pressed="false">Warm Travel<span class="vibe-sw" aria-hidden="true"><i style="--c:#FFB457"></i><i style="--c:#e19a4c"></i><i style="--c:#8f5a34"></i></span></button>
+          <button class="vibe" type="button" data-vibe="cinematic" data-desc="Kontras lebih dalam, shadow punya mood, warna tetap terkendali." aria-pressed="false">Cinematic<span class="vibe-sw" aria-hidden="true"><i style="--c:#4F8CFF"></i><i style="--c:#2f5d66"></i><i style="--c:#161b1e"></i></span></button>
+          <button class="vibe" type="button" data-vibe="oldmoney" data-desc="Tone earthy yang tenang. Rapi, hangat, nggak berisik." aria-pressed="false">Old Money<span class="vibe-sw" aria-hidden="true"><i style="--c:#d9ccb2"></i><i style="--c:#7b8560"></i><i style="--c:#3c3a2c"></i></span></button>
+          <button class="vibe" type="button" data-vibe="vintage" data-desc="Grain halus, warna sedikit pudar, rasa analog." aria-pressed="false">Vintage Film<span class="vibe-sw" aria-hidden="true"><i style="--c:#e6c893"></i><i style="--c:#b7794a"></i><i style="--c:#5d4636"></i></span></button>
+          <button class="vibe" type="button" data-vibe="luxury" data-desc="Terang, netral, minim warna berisik. Kesan mahal tanpa usaha berlebihan." aria-pressed="false">Clean Luxury<span class="vibe-sw" aria-hidden="true"><i style="--c:#F4F7FB"></i><i style="--c:#cfc8bb"></i><i style="--c:#8b8579"></i></span></button>
+          <button class="vibe" type="button" data-vibe="gym" data-desc="Kontras tegas, detail otot lebih terbaca, pencahayaan lebih proper." aria-pressed="false">Gym<span class="vibe-sw" aria-hidden="true"><i style="--c:#4F8CFF"></i><i style="--c:#3a322b"></i><i style="--c:#151413"></i></span></button>
+          <button class="vibe" type="button" data-vibe="fashion" data-desc="Tone terkontrol, kontras tinggi, kesan majalah." aria-pressed="false">Fashion Editorial<span class="vibe-sw" aria-hidden="true"><i style="--c:#9A7CFF"></i><i style="--c:#8a5a5a"></i><i style="--c:#1e1c1c"></i></span></button>
+        </div>
+
+        <div class="vibe-out" aria-live="polite">
+          <h3 id="vibe-name">Natural iPhone</h3>
+          <p id="vibe-desc">Bersih, tajam, warna jujur. Seperti hasil iPhone Pro yang dirapikan.</p>
+          <p class="note">Tulis <b>“<span id="vibe-note">Natural iPhone</span>”</b> di catatan order.</p>
+          <!-- REPLACE WITH ACTUAL LYNK.ID CHECKOUT URL -->
+          <a class="btn btn--primary" data-order="default" href="https://lynk.id/USERNAME">Pakai vibe ini
+            <svg class="arr" aria-hidden="true"><use href="#arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PRICING ============================ -->
+<section class="sec pricing" id="pricing" aria-labelledby="pricing-h" style="padding-top:0">
+  <div class="wrap">
+    <header class="pricing-head">
+      <h2 id="pricing-h" class="rv">Simple pricing.<br><span class="grad-text">No complicated credits.</span></h2>
+      <p class="lede rv" style="--d:1;margin-top:var(--s-3)">Pilih sesuai kebutuhan fotomu. Bingung mulai dari mana? Signature paling banyak dipilih.</p>
+    </header>
+
+    <div class="plans">
+      <article class="plan rv">
+        <p class="plan-k">Package 1</p>
+        <h3>Quick Fix</h3>
+        <p class="price"><span class="cur">Rp</span>25.000</p>
+        <p class="plan-d">For photos that are already good — they just need a little polish.</p>
+        <ul class="plan-list"><li>HD enhancement</li><li>Lighting adjustment</li><li>Color correction</li><li>Detail &amp; sharpness</li><li>Minor cleanup</li></ul>
+        <!-- REPLACE WITH ACTUAL LYNK.ID CHECKOUT URL (CONFIG.links.quick) -->
+        <a class="btn btn--ghost btn--block" data-order="quick" href="https://lynk.id/USERNAME">Ambil Quick Fix</a>
+      </article>
+
+      <article class="plan plan--main rv" style="--d:1">
+        <span class="plan-flag">Most popular</span>
+        <p class="plan-k">Package 2</p>
+        <h3>Sulap Signature</h3>
+        <p class="price"><span class="cur">Rp</span>49.000</p>
+        <p class="plan-d">The one most people pick: cleaner scene, better light, a photo that feels finished.</p>
+        <ul class="plan-list">
+          <li class="all">Everything in Quick Fix</li><li>Remove people / objects</li><li>Background cleanup</li>
+          <li>Aesthetic lighting</li><li>Recomposition</li><li>Change ambience</li><li>Minor AI transformation</li><li>1x minor revision</li>
+        </ul>
+        <!-- REPLACE WITH ACTUAL LYNK.ID CHECKOUT URL (CONFIG.links.signature) -->
+        <a class="btn btn--primary btn--block btn--lg" data-order="signature" href="https://lynk.id/USERNAME">Pilih Signature
+          <svg class="arr" aria-hidden="true"><use href="#arrow"/></svg></a>
+      </article>
+
+      <article class="plan rv" style="--d:2">
+        <p class="plan-k">Package 3</p>
+        <h3>Full Transformation</h3>
+        <p class="price"><span class="cur">Rp</span>79.000</p>
+        <p class="plan-d">For when the photo needs more than a polish — a different outfit, scene, or light.</p>
+        <ul class="plan-list">
+          <li>Advanced AI editing</li><li>Outfit transformation</li><li>Background transformation</li><li>Add / remove objects</li>
+          <li>Advanced composition</li><li>Lighting reconstruction</li><li>Social-media-ready export</li><li>1x minor revision</li>
+        </ul>
+        <!-- REPLACE WITH ACTUAL LYNK.ID CHECKOUT URL (CONFIG.links.full) -->
+        <a class="btn btn--ghost btn--block" data-order="full" href="https://lynk.id/USERNAME">Ambil Full Transformation</a>
+      </article>
+    </div>
+
+    <div class="bundle rv">
+      <div>
+        <p class="plan-k">Bundle</p>
+        <h3>3 Photo Package</h3>
+        <p class="price"><span class="cur">Rp</span>129.000</p>
+        <p class="bundle-per">Sekitar Rp43.000 per foto.</p>
+        <!-- NOTE: decide which edit level the bundle covers and say so here (e.g. "3 foto paket Signature"). -->
+      </div>
+      <div>
+        <p class="kicker">Cocok untuk</p>
+        <ul class="chips"><li>Instagram carousel</li><li>Travel dump</li><li>Profile refresh</li><li>Birthday photos</li><li>OOTD</li><li>Personal branding</li></ul>
+      </div>
+      <!-- REPLACE WITH ACTUAL LYNK.ID CHECKOUT URL (CONFIG.links.bundle) -->
+      <a class="btn btn--primary btn--lg" data-order="bundle" href="https://lynk.id/USERNAME">Ambil Paket 3 Foto
+        <svg class="arr" aria-hidden="true"><use href="#arrow"/></svg></a>
+    </div>
+    <p class="pay-note">Order dan pembayaran diproses lewat Lynk.id.</p>
+  </div>
+</section>
+
+<!-- ============================ HOW IT WORKS ============================ -->
+<section class="sec how" aria-labelledby="how-h">
+  <div class="wrap">
+    <h2 id="how-h" data-split class="rv">From gallery to upload-ready.</h2>
+    <ol class="steps">
+      <li class="step rv"><span class="step-n" aria-hidden="true">01</span><h3>Order</h3><p>Choose your edit.</p></li>
+      <li class="step rv" style="--d:1"><span class="step-n" aria-hidden="true">02</span><h3>Upload</h3><p>Send the highest-quality original photo.</p></li>
+      <li class="step rv" style="--d:2">
+        <span class="step-n" aria-hidden="true">03</span><h3>Tell us the vibe</h3><p>Example request:</p>
+        <blockquote class="req">“Bikin lebih clean seperti hasil iPhone Pro, orang belakang hilangin, lighting warm, tapi jangan kelihatan AI.”</blockquote>
+      </li>
+      <li class="step rv" style="--d:3"><span class="step-n" aria-hidden="true">04</span><h3>We sulap it</h3><p>Your edited photo will be delivered within approximately 1–2 business days.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============================ MADE TO LOOK REAL (flip to light) ============================ -->
+<section class="flip real" aria-labelledby="real-h">
+  <div class="wrap">
+    <h2 class="real-title rv" id="real-h">MADE TO<br>LOOK REAL.</h2>
+    <div class="real-grid">
+      <div class="real-copy rv">
+        <p>Kami nggak mengejar hasil yang paling “AI”.</p>
+        <p class="lead-in">Kami mengejar hasil yang membuat orang berpikir:</p>
+        <p class="q q--yes">“Damn, fotonya bagus.”</p>
+        <p class="lead-in">Bukan:</p>
+        <p class="q q--no">“Ini AI ya?”</p>
+      </div>
+      <ul class="real-list rv" style="--d:1">
+        <li>Natural skin.</li><li>Realistic lighting.</li><li>Proper proportions.</li><li>Clean details.</li><li>Your identity.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ USE CASES ============================ -->
+<section class="sec usecase" aria-labelledby="usecase-h">
+  <div class="wrap">
+    <h2 class="usecase-head rv" id="usecase-h" data-split>SulapFoto works especially well for...</h2>
+    <!-- Masonry placeholders (original gradient art). To use a real photo: delete the <div class="phx …">
+         and add <img src="img/xxx.jpg" alt="…" loading="lazy">. Aspect ratio is set by --ar on each figure. -->
+    <div class="mason is-collapsed" id="mason">
+      <figure class="tile rv" style="--ar:4/5"><img src="https://images.unsplash.com/photo-1642040845149-f9baba44bcc3?w=800&q=75&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Mountain travel landscape" loading="lazy"><figcaption>Travel</figcaption></figure>
+      <figure class="tile rv" style="--ar:1/1"><img src="https://images.unsplash.com/photo-1639660299469-9e9279364c97?w=800&q=75&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Woman lifting a barbell in a gym" loading="lazy"><figcaption>Gym</figcaption></figure>
+      <figure class="tile rv" style="--ar:3/4"><img src="https://images.unsplash.com/photo-1520367745676-56196632073f?w=800&q=75&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Man in a jacket posing, street style" loading="lazy"><figcaption>OOTD</figcaption></figure>
+      <figure class="tile rv" style="--ar:1/1"><img src="https://images.unsplash.com/photo-1565793244233-3d09028aad47?w=800&q=75&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Smiling portrait" loading="lazy"><figcaption>Dating Profile</figcaption></figure>
+      <figure class="tile rv" style="--ar:4/5"><img src="https://images.unsplash.com/photo-1689623659130-fb2b73a615ee?w=800&q=75&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Graduate in cap and gown" loading="lazy"><figcaption>Graduation</figcaption></figure>
+      <figure class="tile rv" style="--ar:4/3"><img src="https://images.unsplash.com/photo-1746399716252-cd681d95bde8?w=800&q=75&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Couple smiling and embracing" loading="lazy"><figcaption>Couple Photos</figcaption></figure>
+      <figure class="tile rv" style="--ar:3/4"><img src="https://images.unsplash.com/photo-1621857584544-9e3d52a650df?w=800&q=75&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Birthday cupcakes" loading="lazy"><figcaption>Birthday</figcaption></figure>
+      <figure class="tile rv" style="--ar:4/5"><img src="https://images.unsplash.com/photo-1492158244976-29b84ba93025?w=800&q=75&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Flatlay coffee cups, lifestyle" loading="lazy"><figcaption>Instagram</figcaption></figure>
+      <figure class="tile rv" style="--ar:9/14"><img src="https://images.unsplash.com/photo-1583781884006-cfb2e4813c0a?w=800&q=75&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Woman in a dance pose" loading="lazy"><figcaption>TikTok</figcaption></figure>
+      <figure class="tile rv" style="--ar:1/1"><img src="https://images.unsplash.com/photo-1696603865152-74514c198a07?w=800&q=75&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Professional headshot" loading="lazy"><figcaption>Personal Branding</figcaption></figure>
+      <figure class="tile rv" style="--ar:4/3"><img src="https://images.unsplash.com/photo-1746517757473-7c88850e539b?w=800&q=75&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Modern living room interior" loading="lazy"><figcaption>Property</figcaption></figure>
+      <figure class="tile rv" style="--ar:4/5"><img src="https://images.unsplash.com/photo-1611253468096-06da23d5e0da?w=800&q=75&auto=format&fit=crop&ixlib=rb-4.1.0" alt="Product bottle photography" loading="lazy"><figcaption>Product Photos</figcaption></figure>
+    </div>
+    <button class="btn btn--ghost mason-more" id="mason-more" type="button">Lihat semua</button>
+  </div>
+</section>
+
+<!-- ============================ TESTIMONIALS (placeholders) ============================ -->
+<section class="sec testi-sec" aria-labelledby="testi-h" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="testi-head rv" id="testi-h" data-split>Kata mereka.</h2>
+    <!--
+      TESTIMONIAL — PLACEHOLDERS ONLY.
+      Replace each card with a REAL, permission-granted customer review (ideally with a screenshot or
+      a link to the original message). Do not publish invented reviews, ratings, or customer counts.
+    -->
+    <!-- SAMPLE COPY: contoh saja. Ganti dengan review asli customer (dengan izin) sebelum launch. -->
+    <div class="testi-grid">
+      <figure class="testi rv"><blockquote>“Awalnya takut kelihatan AI banget. Ternyata mukaku tetap mukaku, cuma lighting-nya akhirnya bener.”</blockquote><figcaption><span class="av" aria-hidden="true">N</span>Nadia · Content creator</figcaption></figure>
+      <figure class="testi rv" style="--d:1"><blockquote>“Foto gym yang tadinya gelap jadi layak masuk feed. Kirim hari ini, besoknya udah beres.”</blockquote><figcaption><span class="av" aria-hidden="true">R</span>Raka · Anak gym</figcaption></figure>
+      <figure class="testi rv" style="--d:2"><blockquote>“Orang di belakang hilang, warnanya hangat, dan nggak ada yang nanya “ini diedit ya?”.”</blockquote><figcaption><span class="av" aria-hidden="true">S</span>Salsa · Travel dump</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="sec faq" id="faq" aria-labelledby="faq-h">
+  <div class="wrap faq-grid">
+    <header class="faq-head rv">
+      <h2 id="faq-h" data-split>Masih ragu? Wajar.</h2>
+      <p class="lede">Jawaban singkat sebelum kamu order.</p>
+    </header>
+    <div class="faq-list">
+      <div class="faq-item is-open">
+        <h3><button class="faq-q" type="button" id="fq1" aria-expanded="true" aria-controls="fa1"><span>Apakah wajah saya akan berubah?</span><span class="faq-ico" aria-hidden="true"></span></button></h3>
+        <div class="faq-a" id="fa1" role="region" aria-labelledby="fq1"><div><p>Identitas, bentuk wajah, dan karakter utama foto sebisa mungkin dipertahankan kecuali customer memang meminta perubahan tertentu.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" type="button" id="fq2" aria-expanded="false" aria-controls="fa2"><span>Hasilnya bakal kelihatan AI?</span><span class="faq-ico" aria-hidden="true"></span></button></h3>
+        <div class="faq-a" id="fa2" role="region" aria-labelledby="fq2"><div><p>SulapFoto berfokus pada natural-looking edits. Tetapi karena sebagian proses menggunakan AI, hasil dapat berbeda tergantung kualitas foto dan kompleksitas request.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" type="button" id="fq3" aria-expanded="false" aria-controls="fa3"><span>Foto apa yang paling bagus untuk dikirim?</span><span class="faq-ico" aria-hidden="true"></span></button></h3>
+        <div class="faq-a" id="fa3" role="region" aria-labelledby="fq3"><div><p>File original dengan resolusi setinggi mungkin. Hindari screenshot atau foto yang sudah berkali-kali dikompres.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" type="button" id="fq4" aria-expanded="false" aria-controls="fa4"><span>Bisa request khusus?</span><span class="faq-ico" aria-hidden="true"></span></button></h3>
+        <div class="faq-a" id="fa4" role="region" aria-labelledby="fq4"><div><p>Ya. Customer dapat menuliskan request sedetail mungkin.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" type="button" id="fq5" aria-expanded="false" aria-controls="fa5"><span>Bisa revisi?</span><span class="faq-ico" aria-hidden="true"></span></button></h3>
+        <div class="faq-a" id="fa5" role="region" aria-labelledby="fq5"><div><p>Paket Signature dan Full Transformation mendapatkan 1x minor revision. Revisi besar atau konsep baru dapat dikenakan biaya tambahan.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" type="button" id="fq6" aria-expanded="false" aria-controls="fa6"><span>Berapa lama prosesnya?</span><span class="faq-ico" aria-hidden="true"></span></button></h3>
+        <div class="faq-a" id="fa6" role="region" aria-labelledby="fq6"><div><p>Normal order sekitar 1–2 hari kerja tergantung antrean dan kompleksitas.</p></div></div>
+      </div>
+      <div class="faq-item">
+        <h3><button class="faq-q" type="button" id="fq7" aria-expanded="false" aria-controls="fa7"><span>Apakah foto saya dipublikasikan?</span><span class="faq-ico" aria-hidden="true"></span></button></h3>
+        <div class="faq-a" id="fa7" role="region" aria-labelledby="fq7"><div><p>Foto customer tidak akan digunakan sebagai materi promosi tanpa persetujuan terlebih dahulu.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FINAL CTA ============================ -->
+<section class="final" id="order" aria-labelledby="final-h">
+  <div class="mesh" aria-hidden="true"><i></i><i></i></div>
+  <b class="sp" style="left:12%;top:26%"></b><b class="sp" style="left:84%;top:20%;--t:1.2s"></b><b class="sp" style="left:70%;top:72%;--t:2.1s"></b><b class="sp" style="left:22%;top:78%;--t:.6s"></b>
+  <div class="wrap">
+    <h2 id="final-h" class="rv">That photo in your gallery <span class="grad-text">deserves another chance.</span></h2>
+    <p class="final-sub rv" style="--d:1">Maybe it wasn't a bad photo.<br>Maybe it just wasn't finished yet.</p>
+    <p class="final-price rv" style="--d:1">Mulai Rp25.000 · hasil dalam 1–2 hari kerja.</p>
+    <div class="cta-row rv" style="--d:2">
+      <!-- REPLACE WITH ACTUAL LYNK.ID CHECKOUT URL -->
+      <a class="btn btn--primary btn--lg" data-order="default" href="https://lynk.id/USERNAME">Sulap Foto Pertamaku
+        <svg class="arr" aria-hidden="true"><use href="#arrow"/></svg></a>
+      <a class="btn btn--ghost btn--lg" href="#before-after">Lihat hasilnya lagi</a>
+    </div>
+    <p class="pay-note rv" style="--d:3;position:relative;z-index:1">Pembayaran aman lewat Lynk.id · Foto kamu nggak dipublikasikan tanpa izin.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="footer">
+  <div class="wrap">
+    <a class="wordmark" href="#top" aria-label="SulapFoto — ke atas"><svg class="logo-mark" aria-hidden="true"><use href="#mark"/></svg>SULAPFOTO<i>.</i></a>
+    <div class="foot-row">
+      <div class="foot-tag">
+        <p>Your photo, but better.</p>
+        <p>Natural AI Photo Editing Studio</p>
+      </div>
+      <nav class="foot-links" aria-label="Footer">
+        <!-- REPLACE Instagram / TikTok links in CONFIG.social (js/main.js) -->
+        <a data-social="instagram" href="https://instagram.com/USERNAME">Instagram</a>
+        <a data-social="tiktok" href="https://tiktok.com/@USERNAME">TikTok</a>
+        <!-- REPLACE WITH ACTUAL LYNK.ID CHECKOUT URL -->
+        <a data-order="default" href="https://lynk.id/USERNAME">Order</a>
+        <a href="#faq">FAQ</a>
+        <!-- REPLACE "#" with your Terms and Privacy pages -->
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+      </nav>
+    </div>
+    <div class="foot-legal">
+      <span>© 2026 SulapFoto. Foto ilustrasi via Pexels &amp; Unsplash.</span>
+      <span>Only upload photos you own or have permission to edit.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+  <!-- REPLACE WITH ACTUAL LYNK.ID CHECKOUT URL -->
+  <a class="btn btn--primary btn--block" data-order="default" href="https://lynk.id/USERNAME" tabindex="-1">Sulap Foto Gue — mulai Rp25K</a>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
